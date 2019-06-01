@@ -23,6 +23,7 @@ gem 'webpacker'
 
 group :development, :test do
   gem 'danger'
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop'
