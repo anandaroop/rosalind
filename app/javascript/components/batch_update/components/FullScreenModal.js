@@ -34,11 +34,6 @@ const Modal = styled.div`
 Modal.displayName = 'Modal'
 
 class FullScreenModal extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleKeyup = this.handleKeyup.bind(this)
-  }
-
   componentWillUpdate({ isOpen: willBeOpen }) {
     const { isOpen } = this.props
     if (!isOpen && willBeOpen) {
@@ -53,7 +48,7 @@ class FullScreenModal extends React.Component {
     }
   }
 
-  handleKeyup(e) {
+  handleKeyup = e => {
     if (e.keyCode === ESC) {
       this.props.onDismiss()
     }

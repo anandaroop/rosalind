@@ -4,21 +4,14 @@ import styled from 'styled-components'
 import { colors } from './Layout'
 
 class Notice extends React.Component {
-  constructor(props) {
-    super(props)
-    this.enter = this.enter.bind(this)
-    this.leave = this.leave.bind(this)
-    this.destroy = this.destroy.bind(this)
-  }
-
-  enter() {
+  enter = () => {
     this._element.classList.add('entering')
     this._enterTimer = setTimeout(() => {
       this._element.classList.remove('entering')
     }, 400)
   }
 
-  leave() {
+  leave = () => {
     this._element.classList.add('leaving')
     this._leaveTimer = setTimeout(() => {
       this._element.classList.remove('leaving')
@@ -26,7 +19,7 @@ class Notice extends React.Component {
     }, 400)
   }
 
-  destroy() {
+  destroy = () => {
     clearTimeout(this._enterTimer)
     clearTimeout(this._leaveTimer)
     this.props.onDismiss(this.props.id)

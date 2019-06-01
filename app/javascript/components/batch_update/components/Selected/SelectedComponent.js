@@ -2,12 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 class SelectedComponent extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleRemove = this.handleRemove.bind(this)
-  }
-
-  handleRemove(e) {
+  handleRemove = e => {
     e.preventDefault()
     this.props.onRemove(this.props.name, this.props.stateKey)
   }

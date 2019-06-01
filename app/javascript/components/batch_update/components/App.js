@@ -42,40 +42,6 @@ class App extends React.Component {
       tags: [],
       totalHits: null,
     }
-
-    this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this)
-    this.onRemoveGene = this.onRemoveGene.bind(this)
-    this.onAddGene = this.onAddGene.bind(this)
-    this.onRemoveTag = this.onRemoveTag.bind(this)
-    this.onAddTag = this.onAddTag.bind(this)
-    this.onRemoveArtist = this.onRemoveArtist.bind(this)
-    this.onAddArtist = this.onAddArtist.bind(this)
-    this.onRemoveKeyword = this.onRemoveKeyword.bind(this)
-    this.onAddKeyword = this.onAddKeyword.bind(this)
-    this.updateStateFor = this.updateStateFor.bind(this)
-    this.clearStateFor = this.clearStateFor.bind(this)
-
-    this.getCommonGenes = this.getCommonGenes.bind(this)
-    this.getCommonTags = this.getCommonTags.bind(this)
-    this.onToggleArtwork = this.onToggleArtwork.bind(this)
-    this.onSelectAllArtworks = this.onSelectAllArtworks.bind(this)
-    this.onDeselectAllArtworks = this.onDeselectAllArtworks.bind(this)
-    this.onPreviewArtwork = this.onPreviewArtwork.bind(this)
-    this.onPreviewPrevious = this.onPreviewPrevious.bind(this)
-    this.onPreviewNext = this.onPreviewNext.bind(this)
-
-    this.fetchArtworks = this.fetchArtworks.bind(this)
-    this.fetchMoreArtworks = this.fetchMoreArtworks.bind(this)
-    this.hasSearchCriteriaChanged = this.hasSearchCriteriaChanged.bind(this)
-    this.canSearch = this.canSearch.bind(this)
-    this.refresh = this.refresh.bind(this)
-    this.handleKeyup = this.handleKeyup.bind(this)
-
-    this.onOpenBatchUpdate = this.onOpenBatchUpdate.bind(this)
-    this.onDismissBatchUpdate = this.onDismissBatchUpdate.bind(this)
-
-    this.addNotice = this.addNotice.bind(this)
-    this.removeNotice = this.removeNotice.bind(this)
   }
 
   componentDidMount() {
@@ -95,11 +61,11 @@ class App extends React.Component {
     }
   }
 
-  shouldComponentUpdate(prevState) {
+  shouldComponentUpdate = prevState => {
     return this.hasSearchCriteriaChanged(prevState)
   }
 
-  hasSearchCriteriaChanged(prevState) {
+  hasSearchCriteriaChanged = prevState => {
     return (
       this.state.artists !== prevState.artists ||
       this.state.attributionClass !== prevState.attributionClass ||
@@ -119,7 +85,7 @@ class App extends React.Component {
     )
   }
 
-  canSearch() {
+  canSearch = () => {
     return (
       this.state.artists.length !== 0 ||
       this.state.attributionClass !== null ||
@@ -131,7 +97,7 @@ class App extends React.Component {
     )
   }
 
-  fetchArtworks() {
+  fetchArtworks = () => {
     const {
       artists,
       attributionClass,
@@ -189,7 +155,7 @@ class App extends React.Component {
     }
   }
 
-  fetchMoreArtworks() {
+  fetchMoreArtworks = () => {
     const {
       artists,
       attributionClass,
@@ -237,24 +203,24 @@ class App extends React.Component {
     })
   }
 
-  refresh() {
+  refresh = () => {
     this.fetchArtworks()
   }
 
-  handleKeyup(e) {
+  handleKeyup = e => {
     if (e.code === 'KeyR' && e.target.tagName === 'BODY') {
       this.refresh()
     }
   }
 
-  onRemoveGene(geneName, key = null) {
+  onRemoveGene = (geneName, key = null) => {
     const { genes } = this.state
     this.setState({
       genes: genes.filter(g => g.name !== geneName),
     })
   }
 
-  onAddGene(gene) {
+  onAddGene = gene => {
     const { genes } = this.state
     findByName(genes, gene) ||
       this.setState({
@@ -262,14 +228,14 @@ class App extends React.Component {
       })
   }
 
-  onRemoveTag(tagName, key = null) {
+  onRemoveTag = (tagName, key = null) => {
     const { tags } = this.state
     this.setState({
       tags: tags.filter(t => t.name !== tagName),
     })
   }
 
-  onAddTag(tag) {
+  onAddTag = tag => {
     const { tags } = this.state
     findByName(tags, tag) ||
       this.setState({
@@ -277,14 +243,14 @@ class App extends React.Component {
       })
   }
 
-  onRemoveArtist(artistId) {
+  onRemoveArtist = artistId => {
     const { artists } = this.state
     this.setState({
       artists: artists.filter(a => a.id !== artistId),
     })
   }
 
-  onAddArtist(artist) {
+  onAddArtist = artist => {
     const { artists } = this.state
     findById(artists, artist) ||
       this.setState({
@@ -292,14 +258,14 @@ class App extends React.Component {
       })
   }
 
-  onRemoveKeyword(keyword) {
+  onRemoveKeyword = keyword => {
     const { keywords } = this.state
     this.setState({
       keywords: keywords.filter(k => k !== keyword),
     })
   }
 
-  onAddKeyword(keyword) {
+  onAddKeyword = keyword => {
     const { keywords } = this.state
     keywords.includes(keyword) ||
       this.setState({
@@ -307,15 +273,15 @@ class App extends React.Component {
       })
   }
 
-  clearStateFor(name = null, key) {
+  clearStateFor = (name = null, key) => {
     this.setState({ [key]: null })
   }
 
-  updateStateFor(key, newState) {
+  updateStateFor = (key, newState) => {
     this.setState({ [key]: newState })
   }
 
-  onToggleArtwork(artwork) {
+  onToggleArtwork = artwork => {
     const { selectedArtworkIds } = this.state
     if (selectedArtworkIds.indexOf(artwork.id) > -1) {
       this.setState({
@@ -328,20 +294,20 @@ class App extends React.Component {
     }
   }
 
-  onSelectAllArtworks() {
+  onSelectAllArtworks = () => {
     const { artworks } = this.state
     this.setState({
       selectedArtworkIds: artworks.map(a => a.id),
     })
   }
 
-  onDeselectAllArtworks() {
+  onDeselectAllArtworks = () => {
     this.setState({
       selectedArtworkIds: [],
     })
   }
 
-  getCommonGenes() {
+  getCommonGenes = () => {
     const { selectedArtworkIds, artworks } = this.state
     const geneArraysForSelectedArtworks = artworks
       .filter(artwork => selectedArtworkIds.indexOf(artwork.id) > -1)
@@ -352,7 +318,7 @@ class App extends React.Component {
     return commonGenes
   }
 
-  getCommonTags() {
+  getCommonTags = () => {
     const { selectedArtworkIds, artworks } = this.state
 
     const tagArraysForSelectedArtworks = artworks
@@ -362,33 +328,33 @@ class App extends React.Component {
     return intersection(...tagArraysForSelectedArtworks)
   }
 
-  onPreviewArtwork(artwork) {
+  onPreviewArtwork = artwork => {
     this.setState({ previewedArtwork: artwork })
   }
 
-  onPreviewPrevious() {
+  onPreviewPrevious = () => {
     const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
     const prev = Math.max(0, curr - 1)
     const artwork = this.state.artworks[prev]
     this.setState({ previewedArtwork: artwork })
   }
 
-  onPreviewNext() {
+  onPreviewNext = () => {
     const curr = this.state.artworks.indexOf(this.state.previewedArtwork)
     const next = Math.min(this.state.artworks.length, curr + 1)
     const artwork = this.state.artworks[next]
     this.setState({ previewedArtwork: artwork })
   }
 
-  onOpenBatchUpdate() {
+  onOpenBatchUpdate = () => {
     this.setState({ isSpecifyingBatchUpdate: true })
   }
 
-  onDismissBatchUpdate() {
+  onDismissBatchUpdate = () => {
     this.setState({ isSpecifyingBatchUpdate: false })
   }
 
-  addNotice(message, options) {
+  addNotice = (message, options) => {
     const optionsWithDefaults = defaults(options, { isError: false })
     const { isError } = optionsWithDefaults
     const newNotice = {
@@ -401,7 +367,7 @@ class App extends React.Component {
     })
   }
 
-  removeNotice(id) {
+  removeNotice = id => {
     const notices = this.state.notices.filter(n => n.id !== id)
     this.setState({ notices })
   }

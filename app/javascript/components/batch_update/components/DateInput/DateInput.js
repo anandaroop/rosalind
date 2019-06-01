@@ -8,11 +8,6 @@ class DateInput extends React.Component {
   constructor(props) {
     super(props)
 
-    this.handleChange = this.handleChange.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.handleKeyPress = this.handleKeyPress.bind(this)
-    this.submitDate = this.submitDate.bind(this)
-
     this.state = {
       input: '',
       selected: null,
@@ -20,7 +15,7 @@ class DateInput extends React.Component {
     }
   }
 
-  handleChange(event) {
+  handleChange = event => {
     const date = parseDate(event.target.value)
     const suggestion = date !== null ? date.toString() : null
 
@@ -30,18 +25,18 @@ class DateInput extends React.Component {
     })
   }
 
-  handleClick(event) {
+  handleClick = event => {
     event.preventDefault()
     this.submitDate()
   }
 
-  handleKeyPress(event) {
+  handleKeyPress = event => {
     if (event.charCode === RETURN) {
       this.submitDate()
     }
   }
 
-  submitDate() {
+  submitDate = () => {
     if (this.state.suggestion !== null) {
       const date = new Date(this.state.suggestion)
       this.props.onSelectDate(this.props.stateKey, dateFormats.default(date))

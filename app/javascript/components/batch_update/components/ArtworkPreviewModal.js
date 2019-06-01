@@ -14,23 +14,21 @@ class ArtworkPreviewModal extends React.Component {
       fullArtworksById: {},
     }
     this._moreInfoTimer = null
-    this.dismiss = this.dismiss.bind(this)
-    this.handleKeyUp = this.handleKeyUp.bind(this)
   }
 
-  dismiss() {
+  dismiss = () => {
     this.props.onPreviewArtwork(null)
   }
 
-  prev() {
+  prev = () => {
     this.props.onPreviewPrevious()
   }
 
-  next() {
+  next = () => {
     this.props.onPreviewNext()
   }
 
-  handleKeyUp(e) {
+  handleKeyUp = e => {
     e.keyCode === ESC && this.dismiss()
     e.keyCode === LEFT && this.prev()
     e.keyCode === RIGHT && this.next()
@@ -58,7 +56,7 @@ class ArtworkPreviewModal extends React.Component {
     }
   }
 
-  fetchMoreInfoAfterDelay(millis = 500) {
+  fetchMoreInfoAfterDelay = (millis = 500) => {
     this._moreInfoTimer = setTimeout(() => {
       fetchArtwork(this.props.artwork.id).then(response => {
         if (response.error) {

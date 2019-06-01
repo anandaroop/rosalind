@@ -63,13 +63,6 @@ const Controls = styled.div`
 Controls.displayName = 'Controls'
 
 class ConfirmationModal extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleKeyup = this.handleKeyup.bind(this)
-    this.handleDismissClick = this.handleDismissClick.bind(this)
-    this.handleAcceptClick = this.handleAcceptClick.bind(this)
-  }
-
   componentWillUpdate({ isOpen: willBeOpen }) {
     const { isOpen } = this.props
     if (!isOpen && willBeOpen) {
@@ -82,18 +75,18 @@ class ConfirmationModal extends React.Component {
     }
   }
 
-  handleKeyup(e) {
+  handleKeyup = e => {
     if (e.keyCode === ESC) {
       this.props.onDismiss()
     }
   }
 
-  handleDismissClick(e) {
+  handleDismissClick = e => {
     e.preventDefault()
     this.props.onDismiss()
   }
 
-  handleAcceptClick(e) {
+  handleAcceptClick = e => {
     e.preventDefault()
     this.props.onAccept()
   }

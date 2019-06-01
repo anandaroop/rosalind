@@ -4,12 +4,7 @@ import styled from 'styled-components'
 import { colors } from './Layout'
 
 class GeneInput extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(e) {
+  handleChange = e => {
     const { onChangeValue, name } = this.props
     const value = e.target.value
     onChangeValue({ name, value })

@@ -23,22 +23,6 @@ class BatchUpdateForm extends React.Component {
       tagsToAdd: [],
       tagsToRemove: [],
     }
-    this.handleCancelClick = this.handleCancelClick.bind(this)
-    this.close = this.close.bind(this)
-    this.showConfirmation = this.showConfirmation.bind(this)
-    this.dismissConfirmation = this.dismissConfirmation.bind(this)
-    this.isValid = this.isValid.bind(this)
-    this.submit = this.submit.bind(this)
-    this.handleSuccess = this.handleSuccess.bind(this)
-    this.handleFailure = this.handleFailure.bind(this)
-    this.handleError = this.handleError.bind(this)
-    this.onAddGene = this.onAddGene.bind(this)
-    this.onAddTag = this.onAddTag.bind(this)
-    this.onRemoveExistingTag = this.onRemoveExistingTag.bind(this)
-    this.onCancelAddTag = this.onCancelAddTag.bind(this)
-    this.onCancelRemoveTag = this.onCancelRemoveTag.bind(this)
-    this.getTagState = this.getTagState.bind(this)
-    this.onChangeGeneValue = this.onChangeGeneValue.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -50,7 +34,7 @@ class BatchUpdateForm extends React.Component {
     }
   }
 
-  initializeGeneValues() {
+  initializeGeneValues = () => {
     const commonGeneNames = this.props.getCommonGenes()
     const nulls = Array(commonGeneNames.length).fill(null)
     const initialGeneValues = zipObject(commonGeneNames, nulls)
@@ -59,7 +43,7 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
-  initializeTagValues() {
+  initializeTagValues = () => {
     const commonTags = this.props.getCommonTags()
     this.setState({
       existingTags: commonTags,
@@ -68,31 +52,31 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
-  handleCancelClick(e) {
+  handleCancelClick = e => {
     e.preventDefault()
     this.close()
   }
 
-  close() {
+  close = () => {
     this.dismissConfirmation()
     this.initializeTagValues()
     this.initializeGeneValues()
     this.props.onCancel()
   }
 
-  showConfirmation() {
+  showConfirmation = () => {
     this.setState({
       isConfirming: true,
     })
   }
 
-  dismissConfirmation() {
+  dismissConfirmation = () => {
     this.setState({
       isConfirming: false,
     })
   }
 
-  isValid() {
+  isValid = () => {
     const selectedArtworksCount = this.props.selectedArtworkIds.length
     const { geneValues, tagsToAdd, tagsToRemove } = this.state
     const names = Object.keys(geneValues)
@@ -107,7 +91,7 @@ class BatchUpdateForm extends React.Component {
     )
   }
 
-  submit() {
+  submit = () => {
     const { selectedArtworkIds } = this.props
     const { geneValues, tagsToAdd, tagsToRemove } = this.state
     const validGenes = pickBy(geneValues, (value, _key) => value !== null)
@@ -130,12 +114,12 @@ class BatchUpdateForm extends React.Component {
       })
   }
 
-  handleSuccess() {
+  handleSuccess = () => {
     this.props.onAddNotice('Batch update was successfully queued')
     this.close()
   }
 
-  handleFailure(response) {
+  handleFailure = response => {
     response.json().then(json => {
       console.log('Failure:', json)
       this.props.onAddNotice(
@@ -145,21 +129,21 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
-  handleError(error) {
+  handleError = error => {
     console.error('Unexpected error:', error)
     this.props.onAddNotice(`There was an unexpected error: ${error}`, {
       isError: true,
     })
   }
 
-  onAddGene({ name }) {
+  onAddGene = ({ name }) => {
     const { geneValues } = this.state
     this.setState({
       geneValues: Object.assign(geneValues, { [name]: null }),
     })
   }
 
-  onChangeGeneValue({ name, value }) {
+  onChangeGeneValue = ({ name, value }) => {
     const { geneValues } = this.state
     const parsedValue = value === '' ? null : parseInt(value)
     this.setState({
@@ -167,14 +151,14 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
-  onAddTag({ name: tag }) {
+  onAddTag = ({ name: tag }) => {
     const { tagsToAdd } = this.state
     this.setState({
       tagsToAdd: [...tagsToAdd, tag],
     })
   }
 
-  onRemoveExistingTag(name) {
+  onRemoveExistingTag = name => {
     const tag = name
     const { tagsToRemove } = this.state
     this.setState({
@@ -182,7 +166,7 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
-  onCancelAddTag(name) {
+  onCancelAddTag = name => {
     const tag = name
     const { tagsToAdd } = this.state
     this.setState({
@@ -190,7 +174,7 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
-  onCancelRemoveTag(name) {
+  onCancelRemoveTag = name => {
     const tag = name
     const { tagsToRemove } = this.state
     this.setState({
@@ -198,7 +182,7 @@ class BatchUpdateForm extends React.Component {
     })
   }
 
-  getTagState() {
+  getTagState = () => {
     const { existingTags, tagsToAdd, tagsToRemove } = this.state
     const output = existingTags.map(tag => ({
       tag,

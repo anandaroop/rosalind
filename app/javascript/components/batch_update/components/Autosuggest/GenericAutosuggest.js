@@ -9,35 +9,27 @@ export default class GenericAutosuggest extends React.Component {
       value: '',
       suggestions: [],
     }
-    this.onSuggestionsFetchRequested = this.onSuggestionsFetchRequested.bind(
-      this
-    )
-    this.onSuggestionsClearRequested = this.onSuggestionsClearRequested.bind(
-      this
-    )
-    this.onChange = this.onChange.bind(this)
-    this.onSuggestionSelected = this.onSuggestionSelected.bind(this)
   }
 
-  onSuggestionsFetchRequested({ value }) {
+  onSuggestionsFetchRequested = ({ value }) => {
     this.props.fetchSuggestions(value).then(suggestions => {
       this.setState({ suggestions })
     })
   }
 
-  onSuggestionsClearRequested() {
+  onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],
     })
   }
 
-  onChange(event, { newValue }) {
+  onChange = (event, { newValue }) => {
     this.setState({
       value: newValue,
     })
   }
 
-  onSuggestionSelected(event, { suggestion }) {
+  onSuggestionSelected = (event, { suggestion }) => {
     this.props.selectSuggestion(suggestion)
     this.setState({ value: '' })
   }

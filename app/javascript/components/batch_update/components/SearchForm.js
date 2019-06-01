@@ -18,12 +18,7 @@ import { Link } from './Links'
 import { SitesConsumer } from '../SitesContext'
 
 class SearchForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.maybeRenderEditButton = this.maybeRenderEditButton.bind(this)
-  }
-
-  maybeRenderEditButton() {
+  maybeRenderEditButton = () => {
     const {
       artworksCount,
       selectedArtworksCount,

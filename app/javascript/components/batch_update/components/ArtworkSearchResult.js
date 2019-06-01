@@ -6,12 +6,7 @@ import { color } from '@artsy/palette'
 import missingImage from './missing_image.png'
 
 class ArtworkSearchResult extends React.Component {
-  constructor(props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick(e) {
+  handleClick = e => {
     const { artwork, onPreviewArtwork, onToggleArtwork } = this.props
     if (e.metaKey) {
       onPreviewArtwork(artwork)
