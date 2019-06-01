@@ -104,4 +104,23 @@ describe 'User searches artworks', js: true do
     expect(page).to_not have_selected_fair('Fair Best')
     expect(page).to have_no_results
   end
+
+  scenario 'by artist' do
+    artist = { 'id' => 'good-artist', 'name' => 'Good Artist' }
+    options = { params: { term: 'Goo' } }
+    Kinetic::Stub::Gravity::GravityModel.match([artist], options, 200, Artist)
+
+    visit '/'
+    fill_in placeholder: 'Add an artist', with: 'Goo'
+    find('li[role=option]', text: 'Good Artist').click
+
+    expect(page).to have_selected_artist('Good Artist')
+    expect(page).to have_autosuggest('Add an artist')
+    expect(page).to have_results(hits)
+
+    find('.remove').click
+
+    expect(page).to_not have_selected_artist('Good Artist')
+    expect(page).to have_no_results
+  end
 end
