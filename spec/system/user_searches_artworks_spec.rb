@@ -101,7 +101,7 @@ describe 'User searches artworks', js: true do
 
     find('.remove').click
 
-    expect(page).to_not have_selected_partner('Fair Best')
+    expect(page).to_not have_selected_fair('Fair Best')
     expect(page).to have_no_results
   end
 end
