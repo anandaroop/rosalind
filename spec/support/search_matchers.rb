@@ -38,6 +38,14 @@ RSpec::Matchers.define :have_selected_artist do |artist_name|
   end
 end
 
+RSpec::Matchers.define :have_selected_keyword do |keyword_text|
+  match do |page|
+    expect(page).to have_css('h2', text: 'KEYWORDS')
+    expect(page).to have_css('div', text: keyword_text)
+    expect(page).to have_css('.remove')
+  end
+end
+
 RSpec::Matchers.define :have_autosuggest do |placeholder|
   match do |page|
     expect(page).to have_css("input[placeholder='#{placeholder}']")

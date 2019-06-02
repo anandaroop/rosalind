@@ -123,4 +123,20 @@ describe 'User searches artworks', js: true do
     expect(page).to_not have_selected_artist('Good Artist')
     expect(page).to have_no_results
   end
+
+  scenario 'by keyword' do
+    visit '/'
+    fill_in placeholder: 'Add a keyword', with: 'hot dog'
+
+    find('input[placeholder="Add a keyword"]').send_keys :return
+
+    expect(page).to have_selected_keyword('hot dog')
+    expect(page).to have_autosuggest('Add a keyword')
+    expect(page).to have_results(hits)
+
+    find('.remove').click
+
+    expect(page).to_not have_selected_keyword('hot dog')
+    expect(page).to have_no_results
+  end
 end
