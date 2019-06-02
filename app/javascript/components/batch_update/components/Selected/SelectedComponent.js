@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { color } from '@artsy/palette'
 
 class SelectedComponent extends React.Component {
   constructor(props) {
@@ -12,11 +13,20 @@ class SelectedComponent extends React.Component {
     this.props.onRemove(this.props.name, this.props.stateKey)
   }
 
+  handleToggleNegation = e => {
+    e.preventDefault()
+    this.props.onNegate(this.props.name, this.props.isNegated)
+  }
+
   render() {
-    const { className, name } = this.props
+    const { className, name, isNegated } = this.props
 
     return (
       <div className={className}>
+        <NegationToggler
+          isNegated={isNegated}
+          onClick={this.handleToggleNegation}
+        />{' '}
         {name}
         <a href="#" className="remove" onClick={this.handleRemove}>
           ✕
@@ -31,6 +41,8 @@ class SelectedComponent extends React.Component {
 const StyledSelectedComponent = styled(SelectedComponent)`
   font-weight: bold;
   margin: 0.25em 0;
+  position: relative;
+  left: -0.25em;
 
   a.remove {
     display: inline-block;
@@ -47,6 +59,24 @@ const StyledSelectedComponent = styled(SelectedComponent)`
       cursor: pointer;
       background: #eee;
     }
+  }
+`
+
+const NegationToggler = ({ isNegated, onClick }) => (
+  <ToggleButton onClick={onClick}>{isNegated ? '－' : '＋'}</ToggleButton>
+)
+
+const ToggleButton = styled.button`
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
+  line-height: 1.5em;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+
+  &:hover {
+    border: solid 1px ${color('black30')};
   }
 `
 

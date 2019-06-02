@@ -388,6 +388,20 @@ class App extends React.Component {
     this.setState({ isSpecifyingBatchUpdate: false })
   }
 
+  onNegateTag = (name, currentlyNegated) => {
+    this.toggleNegationByName('tags', name)
+  }
+
+  toggleNegationByName = (stateKey, name) => {
+    const values = this.state[stateKey]
+    let newValues = [...values]
+    let valueToToggle = newValues.find(v => v.name === name)
+    valueToToggle.isNegated = !valueToToggle.isNegated
+    this.setState({
+      [stateKey]: newValues,
+    })
+  }
+
   addNotice(message, options) {
     const optionsWithDefaults = defaults(options, { isError: false })
     const { isError } = optionsWithDefaults
@@ -450,6 +464,7 @@ class App extends React.Component {
             onAddGene={this.onAddGene}
             onAddKeyword={this.onAddKeyword}
             onAddTag={this.onAddTag}
+            onNegateTag={this.onNegateTag}
             onOpenBatchUpdate={this.onOpenBatchUpdate}
             onRemoveArtist={this.onRemoveArtist}
             onRemoveGene={this.onRemoveGene}

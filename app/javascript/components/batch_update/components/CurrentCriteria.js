@@ -26,6 +26,7 @@ function CurrentCriteria(props) {
     fair,
     genes,
     keywords,
+    onNegateTag,
     onRemoveKeyword,
     onRemoveGene,
     onRemoveTag,
@@ -47,7 +48,13 @@ function CurrentCriteria(props) {
       {genes.length > 0 && (
         <CurrentGenes genes={genes} onRemoveGene={onRemoveGene} />
       )}
-      {tags.length > 0 && <CurrentTags tags={tags} onRemoveTag={onRemoveTag} />}
+      {tags.length > 0 && (
+        <CurrentTags
+          tags={tags}
+          onRemoveTag={onRemoveTag}
+          onNegateTag={onNegateTag}
+        />
+      )}
       {artists.length > 0 && (
         <CurrentArtists artists={artists} onRemoveArtist={onRemoveArtist} />
       )}
@@ -122,12 +129,18 @@ function CurrentKeywords(props) {
 }
 
 function CurrentTags(props) {
-  const { tags, onRemoveTag } = props
+  const { tags, onRemoveTag, onNegateTag } = props
   return (
     <div>
       <h2>Tags</h2>
       {tags.map(t => (
-        <SelectedTag key={t.id} name={t.name} onRemove={onRemoveTag} />
+        <SelectedTag
+          key={t.id}
+          name={t.name}
+          isNegated={t.isNegated}
+          onRemove={onRemoveTag}
+          onNegate={onNegateTag}
+        />
       ))}
     </div>
   )

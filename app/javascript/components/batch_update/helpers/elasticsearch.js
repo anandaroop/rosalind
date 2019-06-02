@@ -24,24 +24,40 @@ export function buildElasticsearchQuery(args) {
   const geneMatches = genes.map(g => {
     return { match: { genes: g.name } }
   })
-  const tagMatches = tags.map(t => {
-    return { match: { tags: t.name } }
-  })
+
+  const tagMatches = tags
+    .filter(t => !t.isNegated)
+    .map(t => {
+      return { match: { tags: t.name } }
+    })
+
+  const tagNegations = tags
+    .filter(t => t.isNegated)
+    .map(t => {
+      return { match: { tags: t.name } }
+    })
+
   const artistMatches = artists.map(a => {
     return { match: { artist_id: a.id } }
   })
+
   const filterMatches = buildFilterMatches({
     publishedFilter,
     genomedFilter,
     acquireableOrOfferableFilter,
   })
+
   const partnerMatch = partner ? { match: { partner_id: partner.id } } : null
+
   const fairMatch = fair ? { match: { fair_ids: fair.id } } : null
+
   const attributionClassMatch = attributionClass
     ? { match: { attribution: attributionClass.value } }
     : null
+
   const priceMatch =
     minPrice || maxPrice ? buildPriceMatch({ minPrice, maxPrice }) : null
+
   const createdDateRange = buildCreatedDateRange({
     createdAfterDate,
     createdBeforeDate,
@@ -82,7 +98,8 @@ export function buildElasticsearchQuery(args) {
           attributionClassMatch,
           priceMatch,
           createdDateRange,
-        ].filter(m => m !== null),
+        ].filter(m => m),
+        must_not: [...tagNegations].filter(m => m),
       },
     },
     sort: [{ published_at: 'desc' }, { id: 'desc' }],

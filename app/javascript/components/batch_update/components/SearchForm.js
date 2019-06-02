@@ -62,6 +62,7 @@ class SearchForm extends React.Component {
       keywords,
       maxPrice,
       minPrice,
+      onNegateTag,
       onRemoveKeyword,
       onRemoveGene,
       onRemoveTag,
@@ -97,6 +98,7 @@ class SearchForm extends React.Component {
           keywords={keywords}
           minPrice={minPrice}
           maxPrice={maxPrice}
+          onNegateTag={onNegateTag}
           onRemoveKeyword={onRemoveKeyword}
           onRemoveGene={onRemoveGene}
           onRemoveTag={onRemoveTag}
