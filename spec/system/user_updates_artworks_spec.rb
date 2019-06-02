@@ -72,7 +72,10 @@ describe 'User updates artworks', js: true do
   scenario 'Specify a batch update' do
     gene_to_update = { 'id' => 'animation', 'name' => 'Animation' }
     gene_to_delete = { 'id' => 'flatness', 'name' => 'Flatness' }
+    tag_to_add = { 'id' => 'pikachu', 'name' => 'Pikachu' }
+    tag_to_unadd = { 'id' => 'meowth', 'name' => 'Meowth' }
     Kinetic::Stub::Gravity::GravityModel.match([gene_to_update, gene_to_delete], {}, 200, Gene)
+    Kinetic::Stub::Gravity::GravityModel.match([tag_to_add, tag_to_unadd], {}, 200, Tag)
 
     find('img[alt="Charmander"]').click
     find('img[alt="Pikachu"]').click
@@ -91,6 +94,21 @@ describe 'User updates artworks', js: true do
       find('li[role=option]', text: 'Flatness').click
       new_input = find(:xpath, '//div[contains(text(), "Flatness")]/following-sibling::input')
       new_input.send_keys '0'
+
+      # specify a tag to add
+      fill_in placeholder: 'Add a tag', with: 'pikac'
+      find('li[role=option]', text: 'Pikachu').click
+      expect(page).to have_text 'Pikachu'
+      find(:xpath, '//div[contains(text(), "Pikachu")]')
+
+      # specify a tag to add, then un-add
+      fill_in placeholder: 'Add a tag', with: 'meow'
+      find('li[role=option]', text: 'Meowth').click
+      expect(page).to have_text 'Meowth'
+
+      tag = find(:xpath, '//div[contains(text(), "Meowth")]')
+      tag.click
+      expect(page).not_to have_text 'Meowth'
 
       click_on 'Queue changes'
       expect(page).to have_text 'Are you sure'
