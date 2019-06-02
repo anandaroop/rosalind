@@ -154,4 +154,32 @@ describe 'User searches artworks', js: true do
     expect(page).to_not have_selected_attribution_class('Ephemera')
     expect(page).to have_no_results
   end
+
+  scenario 'by price' do
+    visit '/'
+    fill_in placeholder: 'Add a keyword', with: 'anything'
+    find('input[placeholder="Add a keyword"]').send_keys :return
+
+    fill_in placeholder: 'Minimum Price', with: 1000
+    find('input[placeholder="Minimum Price"]').send_keys :return
+
+    fill_in placeholder: 'Maximum Price', with: 5000
+    find('input[placeholder="Maximum Price"]').send_keys :return
+
+    expect(page).to have_selected_minimum_price(1000)
+    expect(page).not_to have_autosuggest('Minimum Price')
+
+    expect(page).to have_selected_maximum_price(5000)
+    expect(page).not_to have_autosuggest('Maximum Price')
+
+    expect(page).to have_results(hits)
+
+    first('.remove').click
+    first('.remove').click
+    first('.remove').click
+
+    expect(page).to_not have_selected_keyword(1000)
+    expect(page).to_not have_selected_keyword(5000)
+    expect(page).to have_no_results
+  end
 end

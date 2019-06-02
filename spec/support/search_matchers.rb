@@ -54,6 +54,22 @@ RSpec::Matchers.define :have_selected_attribution_class do |attribution_class|
   end
 end
 
+RSpec::Matchers.define :have_selected_minimum_price do |minimum_price|
+  match do |page|
+    expect(page).to have_css('h2', text: 'PRICE')
+    expect(page).to have_css('div', text: "Minimum: USD #{minimum_price}")
+    expect(page).to have_css('.remove')
+  end
+end
+
+RSpec::Matchers.define :have_selected_maximum_price do |maximum_price|
+  match do |page|
+    expect(page).to have_css('h2', text: 'PRICE')
+    expect(page).to have_css('div', text: "Maximum: USD #{maximum_price}")
+    expect(page).to have_css('.remove')
+  end
+end
+
 RSpec::Matchers.define :have_autosuggest do |placeholder|
   match do |page|
     expect(page).to have_css("input[placeholder='#{placeholder}']")
