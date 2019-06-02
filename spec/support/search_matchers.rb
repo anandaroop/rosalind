@@ -46,6 +46,14 @@ RSpec::Matchers.define :have_selected_keyword do |keyword_text|
   end
 end
 
+RSpec::Matchers.define :have_selected_attribution_class do |attribution_class|
+  match do |page|
+    expect(page).to have_css('h2', text: 'ATTRIBUTION CLASS')
+    expect(page).to have_css('div', text: attribution_class)
+    expect(page).to have_css('.remove')
+  end
+end
+
 RSpec::Matchers.define :have_autosuggest do |placeholder|
   match do |page|
     expect(page).to have_css("input[placeholder='#{placeholder}']")

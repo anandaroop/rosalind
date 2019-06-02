@@ -139,4 +139,19 @@ describe 'User searches artworks', js: true do
     expect(page).to_not have_selected_keyword('hot dog')
     expect(page).to have_no_results
   end
+
+  scenario 'by attribution class' do
+    visit '/'
+    fill_in placeholder: 'Select an attribution class', with: 'ephem'
+    find('li[role=option]', text: 'Ephemera').click
+
+    expect(page).to have_selected_attribution_class('Ephemera')
+    expect(page).not_to have_autosuggest('Select an attribution class')
+    expect(page).to have_results(hits)
+
+    find('.remove').click
+
+    expect(page).to_not have_selected_attribution_class('Ephemera')
+    expect(page).to have_no_results
+  end
 end
