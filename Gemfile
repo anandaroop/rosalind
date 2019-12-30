@@ -4,7 +4,7 @@ ruby File.read('.ruby-version')
 
 gem 'pg'
 gem 'puma'
-gem 'rails', '~>5.2.0'
+gem 'rails', '~>6.0.0'
 
 kinetic_gem_spec = { git: 'https://github.com/artsy/kinetic.git', branch: 'master' }
 # kinetic_gem_spec = { path: '../kinetic' }
