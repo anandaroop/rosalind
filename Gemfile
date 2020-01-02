@@ -32,6 +32,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'aws-sdk-ecr'
   gem 'foreman', require: false
   gem 'listen'
   gem 'spring'
