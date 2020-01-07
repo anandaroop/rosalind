@@ -421,6 +421,34 @@ exports[`"edit artworks" button does not render an edit button if there are no a
         False
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        For Sale?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -872,6 +900,34 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     >
       <div>
         Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        For Sale?
       </div>
       <a
         className="active"
@@ -1395,6 +1451,34 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
         False
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        For Sale?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
+      </a>
+    </div>
   </div>
   <button
     className="c4  "
@@ -1858,6 +1942,34 @@ exports[`does not render attribution class autosuggest if it is already selected
         False
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        For Sale?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -2271,6 +2383,34 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     >
       <div>
         Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        For Sale?
       </div>
       <a
         className="active"
@@ -2730,6 +2870,34 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
         False
       </a>
     </div>
+    <div
+      className="filter"
+    >
+      <div>
+        For Sale?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -3132,6 +3300,34 @@ exports[`renders correctly 1`] = `
     >
       <div>
         Acquireable Or Offerable?
+      </div>
+      <a
+        className="active"
+        href="#"
+        onClick={[Function]}
+      >
+        All
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        True
+      </a>
+      <a
+        className={null}
+        href="#"
+        onClick={[Function]}
+      >
+        False
+      </a>
+    </div>
+    <div
+      className="filter"
+    >
+      <div>
+        For Sale?
       </div>
       <a
         className="active"

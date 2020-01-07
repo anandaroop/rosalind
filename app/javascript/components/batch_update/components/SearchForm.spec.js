@@ -15,6 +15,7 @@ beforeEach(() => {
     createdAfterDate: null,
     createdBeforeDate: null,
     fair: null,
+    forSaleFilter: 'SHOW_ALL',
     genes: [],
     genomedFilter: 'SHOW_ALL',
     keywords: [],
