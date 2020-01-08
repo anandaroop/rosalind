@@ -42,7 +42,7 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   outline: none;
 }
 
-.c3 {
+.c6 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -52,27 +52,95 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   transition: opacity 0.5s;
 }
 
-.c3:hover {
+.c6:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c3 .filter {
+.c6 .filter {
   margin-top: 1em;
 }
 
-.c3 .filter a {
+.c6 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c3 .filter a.active {
+.c6 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
+}
+
+.c3 {
+  margin-top: 8px;
+}
+
+.c5 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c4 {
+  position: relative;
+}
+
+.c4 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c4 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c4 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c4 select option:not(:checked) {
+  color: black;
+}
+
+.c4 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c4 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c4::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
 }
 
 <div
@@ -336,6 +404,71 @@ exports[`"edit artworks" button does not render an edit button if there are no a
   </div>
   <div
     className="c3"
+  >
+    <div
+      className="c4"
+      onSelect={[Function]}
+      title="Sort"
+    >
+      <label>
+        <div
+          className="c5 "
+          display="inline"
+          fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontSize="12px"
+        >
+          Sort
+          :
+        </div>
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="RECENTLY_PUBLISHED"
+          >
+            Recently published
+          </option>
+          <option
+            value="RECENTLY_UPDATED"
+          >
+            Recently updated
+          </option>
+          <option
+            value="RECENTLY_CHANGED_ACQUIREABILITY"
+          >
+            Recent acquireability change
+          </option>
+          <option
+            value="MERCHANDISABILITY"
+          >
+            Merchandisability
+          </option>
+          <option
+            value="HIGHEST_PRICE"
+          >
+            Highest price
+          </option>
+          <option
+            value="LOWEST_PRICE"
+          >
+            Lowest price
+          </option>
+          <option
+            value="LARGEST"
+          >
+            Largest dimensions
+          </option>
+          <option
+            value="SMALLEST"
+          >
+            Smallest dimensions
+          </option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div
+    className="c6"
   >
     <div
       className="filter"
@@ -495,7 +628,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   outline: none;
 }
 
-.c3 {
+.c6 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -505,22 +638,22 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   transition: opacity 0.5s;
 }
 
-.c3:hover {
+.c6:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c3 .filter {
+.c6 .filter {
   margin-top: 1em;
 }
 
-.c3 .filter a {
+.c6 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c3 .filter a.active {
+.c6 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -528,7 +661,19 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   cursor: default;
 }
 
+.c3 {
+  margin-top: 8px;
+}
+
 .c5 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c8 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -536,7 +681,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   padding-top: 1px;
 }
 
-.c4 {
+.c7 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -553,7 +698,7 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   color: #FFF;
 }
 
-.c4.loading {
+.c7.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -562,15 +707,71 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
   cursor: auto;
 }
 
-.c4.disabled {
+.c7.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
+.c4 {
+  position: relative;
+}
+
+.c4 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c4 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c4 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c4 select option:not(:checked) {
+  color: black;
+}
+
+.c4 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c4 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c4::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+}
+
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c4:hover {
+  .c7:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -840,6 +1041,71 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     className="c3"
   >
     <div
+      className="c4"
+      onSelect={[Function]}
+      title="Sort"
+    >
+      <label>
+        <div
+          className="c5 "
+          display="inline"
+          fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontSize="12px"
+        >
+          Sort
+          :
+        </div>
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="RECENTLY_PUBLISHED"
+          >
+            Recently published
+          </option>
+          <option
+            value="RECENTLY_UPDATED"
+          >
+            Recently updated
+          </option>
+          <option
+            value="RECENTLY_CHANGED_ACQUIREABILITY"
+          >
+            Recent acquireability change
+          </option>
+          <option
+            value="MERCHANDISABILITY"
+          >
+            Merchandisability
+          </option>
+          <option
+            value="HIGHEST_PRICE"
+          >
+            Highest price
+          </option>
+          <option
+            value="LOWEST_PRICE"
+          >
+            Lowest price
+          </option>
+          <option
+            value="LARGEST"
+          >
+            Largest dimensions
+          </option>
+          <option
+            value="SMALLEST"
+          >
+            Smallest dimensions
+          </option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div
+    className="c6"
+  >
+    <div
       className="filter"
     >
       <div>
@@ -953,14 +1219,14 @@ exports[`"edit artworks" button renders a disabled edit button if there are artw
     </div>
   </div>
   <button
-    className="c4  disabled"
+    className="c7  disabled"
     disabled={true}
     height="41px"
     onClick={[Function]}
     width={1}
   >
     <div
-      className="c5 "
+      className="c8 "
       fontFamily={
         Object {
           "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -1017,7 +1283,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   outline: none;
 }
 
-.c3 {
+.c6 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -1027,22 +1293,22 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   transition: opacity 0.5s;
 }
 
-.c3:hover {
+.c6:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c3 .filter {
+.c6 .filter {
   margin-top: 1em;
 }
 
-.c3 .filter a {
+.c6 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c3 .filter a.active {
+.c6 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
@@ -1050,7 +1316,19 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   cursor: default;
 }
 
+.c3 {
+  margin-top: 8px;
+}
+
 .c5 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c8 {
   font-family: Unica77LLWebMedium,'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -1058,7 +1336,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   padding-top: 1px;
 }
 
-.c4 {
+.c7 {
   cursor: pointer;
   position: relative;
   white-space: nowrap;
@@ -1075,7 +1353,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   color: #FFF;
 }
 
-.c4.loading {
+.c7.loading {
   -webkit-transition: none;
   transition: none;
   background-color: transparent;
@@ -1084,21 +1362,77 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
   cursor: auto;
 }
 
-.c4.disabled {
+.c7.disabled {
   background-color: #E5E5E5;
   border-color: #E5E5E5;
   color: #FFF;
   pointer-events: none;
 }
 
-.c6 {
+.c4 {
+  position: relative;
+}
+
+.c4 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c4 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c4 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c4 select option:not(:checked) {
+  color: black;
+}
+
+.c4 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c4 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c4::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+}
+
+.c9 {
   color: #666666;
   display: block;
   margin-top: 1em;
 }
 
 @media not all and (pointer:coarse),not all and (-moz-touch-enabled:1) {
-  .c4:hover {
+  .c7:hover {
     background-color: #6E1EFF;
     border-color: #6E1EFF;
     color: #FFF;
@@ -1368,6 +1702,71 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     className="c3"
   >
     <div
+      className="c4"
+      onSelect={[Function]}
+      title="Sort"
+    >
+      <label>
+        <div
+          className="c5 "
+          display="inline"
+          fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontSize="12px"
+        >
+          Sort
+          :
+        </div>
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="RECENTLY_PUBLISHED"
+          >
+            Recently published
+          </option>
+          <option
+            value="RECENTLY_UPDATED"
+          >
+            Recently updated
+          </option>
+          <option
+            value="RECENTLY_CHANGED_ACQUIREABILITY"
+          >
+            Recent acquireability change
+          </option>
+          <option
+            value="MERCHANDISABILITY"
+          >
+            Merchandisability
+          </option>
+          <option
+            value="HIGHEST_PRICE"
+          >
+            Highest price
+          </option>
+          <option
+            value="LOWEST_PRICE"
+          >
+            Lowest price
+          </option>
+          <option
+            value="LARGEST"
+          >
+            Largest dimensions
+          </option>
+          <option
+            value="SMALLEST"
+          >
+            Smallest dimensions
+          </option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div
+    className="c6"
+  >
+    <div
       className="filter"
     >
       <div>
@@ -1481,13 +1880,13 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </div>
   <button
-    className="c4  "
+    className="c7  "
     height="41px"
     onClick={[Function]}
     width={1}
   >
     <div
-      className="c5 "
+      className="c8 "
       fontFamily={
         Object {
           "fontFamily": "Unica77LLWebMedium, 'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -1500,7 +1899,7 @@ exports[`"edit artworks" button renders an enabled edit button if there are sele
     </div>
   </button>
   <a
-    className="c6"
+    className="c9"
     href="http://helix/genome/artworks?artwork_ids="
     rel="noopener noreferrer"
     target="_blank"
@@ -1576,7 +1975,7 @@ exports[`does not render attribution class autosuggest if it is already selected
   outline: none;
 }
 
-.c4 {
+.c7 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -1586,27 +1985,95 @@ exports[`does not render attribution class autosuggest if it is already selected
   transition: opacity 0.5s;
 }
 
-.c4:hover {
+.c7:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c4 .filter {
+.c7 .filter {
   margin-top: 1em;
 }
 
-.c4 .filter a {
+.c7 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c4 .filter a.active {
+.c7 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
+}
+
+.c4 {
+  margin-top: 8px;
+}
+
+.c6 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c5 {
+  position: relative;
+}
+
+.c5 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c5 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c5 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c5 select option:not(:checked) {
+  color: black;
+}
+
+.c5 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c5 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c5::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
 }
 
 <div
@@ -1859,6 +2326,71 @@ exports[`does not render attribution class autosuggest if it is already selected
     className="c4"
   >
     <div
+      className="c5"
+      onSelect={[Function]}
+      title="Sort"
+    >
+      <label>
+        <div
+          className="c6 "
+          display="inline"
+          fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontSize="12px"
+        >
+          Sort
+          :
+        </div>
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="RECENTLY_PUBLISHED"
+          >
+            Recently published
+          </option>
+          <option
+            value="RECENTLY_UPDATED"
+          >
+            Recently updated
+          </option>
+          <option
+            value="RECENTLY_CHANGED_ACQUIREABILITY"
+          >
+            Recent acquireability change
+          </option>
+          <option
+            value="MERCHANDISABILITY"
+          >
+            Merchandisability
+          </option>
+          <option
+            value="HIGHEST_PRICE"
+          >
+            Highest price
+          </option>
+          <option
+            value="LOWEST_PRICE"
+          >
+            Lowest price
+          </option>
+          <option
+            value="LARGEST"
+          >
+            Largest dimensions
+          </option>
+          <option
+            value="SMALLEST"
+          >
+            Smallest dimensions
+          </option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div
+    className="c7"
+  >
+    <div
       className="filter"
     >
       <div>
@@ -2040,7 +2572,7 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   outline: none;
 }
 
-.c4 {
+.c7 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -2050,27 +2582,95 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
   transition: opacity 0.5s;
 }
 
-.c4:hover {
+.c7:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c4 .filter {
+.c7 .filter {
   margin-top: 1em;
 }
 
-.c4 .filter a {
+.c7 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c4 .filter a.active {
+.c7 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
+}
+
+.c4 {
+  margin-top: 8px;
+}
+
+.c6 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c5 {
+  position: relative;
+}
+
+.c5 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c5 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c5 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c5 select option:not(:checked) {
+  color: black;
+}
+
+.c5 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c5 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c5::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
 }
 
 <div
@@ -2323,6 +2923,71 @@ exports[`does not render fair autosuggest if fair is already selected 1`] = `
     className="c4"
   >
     <div
+      className="c5"
+      onSelect={[Function]}
+      title="Sort"
+    >
+      <label>
+        <div
+          className="c6 "
+          display="inline"
+          fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontSize="12px"
+        >
+          Sort
+          :
+        </div>
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="RECENTLY_PUBLISHED"
+          >
+            Recently published
+          </option>
+          <option
+            value="RECENTLY_UPDATED"
+          >
+            Recently updated
+          </option>
+          <option
+            value="RECENTLY_CHANGED_ACQUIREABILITY"
+          >
+            Recent acquireability change
+          </option>
+          <option
+            value="MERCHANDISABILITY"
+          >
+            Merchandisability
+          </option>
+          <option
+            value="HIGHEST_PRICE"
+          >
+            Highest price
+          </option>
+          <option
+            value="LOWEST_PRICE"
+          >
+            Lowest price
+          </option>
+          <option
+            value="LARGEST"
+          >
+            Largest dimensions
+          </option>
+          <option
+            value="SMALLEST"
+          >
+            Smallest dimensions
+          </option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div
+    className="c7"
+  >
+    <div
       className="filter"
     >
       <div>
@@ -2504,7 +3169,7 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   outline: none;
 }
 
-.c4 {
+.c7 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -2514,27 +3179,95 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
   transition: opacity 0.5s;
 }
 
-.c4:hover {
+.c7:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c4 .filter {
+.c7 .filter {
   margin-top: 1em;
 }
 
-.c4 .filter a {
+.c7 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c4 .filter a.active {
+.c7 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
+}
+
+.c4 {
+  margin-top: 8px;
+}
+
+.c6 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c5 {
+  position: relative;
+}
+
+.c5 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c5 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c5 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c5 select option:not(:checked) {
+  color: black;
+}
+
+.c5 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c5 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c5::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
 }
 
 <div
@@ -2787,6 +3520,71 @@ exports[`does not render partner autosuggest if partner is already selected 1`] 
     className="c4"
   >
     <div
+      className="c5"
+      onSelect={[Function]}
+      title="Sort"
+    >
+      <label>
+        <div
+          className="c6 "
+          display="inline"
+          fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontSize="12px"
+        >
+          Sort
+          :
+        </div>
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="RECENTLY_PUBLISHED"
+          >
+            Recently published
+          </option>
+          <option
+            value="RECENTLY_UPDATED"
+          >
+            Recently updated
+          </option>
+          <option
+            value="RECENTLY_CHANGED_ACQUIREABILITY"
+          >
+            Recent acquireability change
+          </option>
+          <option
+            value="MERCHANDISABILITY"
+          >
+            Merchandisability
+          </option>
+          <option
+            value="HIGHEST_PRICE"
+          >
+            Highest price
+          </option>
+          <option
+            value="LOWEST_PRICE"
+          >
+            Lowest price
+          </option>
+          <option
+            value="LARGEST"
+          >
+            Largest dimensions
+          </option>
+          <option
+            value="SMALLEST"
+          >
+            Smallest dimensions
+          </option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div
+    className="c7"
+  >
+    <div
       className="filter"
     >
       <div>
@@ -2944,7 +3742,7 @@ exports[`renders correctly 1`] = `
   outline: none;
 }
 
-.c3 {
+.c6 {
   font-size: 80%;
   color: #333;
   line-height: 140%;
@@ -2954,27 +3752,95 @@ exports[`renders correctly 1`] = `
   transition: opacity 0.5s;
 }
 
-.c3:hover {
+.c6:hover {
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
-.c3 .filter {
+.c6 .filter {
   margin-top: 1em;
 }
 
-.c3 .filter a {
+.c6 .filter a {
   color: #999;
   margin-right: 0.5em;
 }
 
-.c3 .filter a.active {
+.c6 .filter a.active {
   color: #333;
   font-weight: bold;
   -webkit-text-decoration: none;
   text-decoration: none;
   cursor: default;
+}
+
+.c3 {
+  margin-top: 8px;
+}
+
+.c5 {
+  font-family: Unica77LLWebRegular,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline;
+  margin-right: 0.5px;
+}
+
+.c4 {
+  position: relative;
+}
+
+.c4 label {
+  padding: 0;
+  margin: 0;
+}
+
+.c4 select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0.01px;
+  text-overflow: "";
+  background-color: #E5E5E5;
+  border-radius: 2px;
+  font-size: px;
+  line-height: px;
+  padding: 5px 26px 5px 10px;
+}
+
+.c4 select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.c4 select option:not(:checked) {
+  color: black;
+}
+
+.c4 select:hover {
+  background-color: #C2C2C2;
+}
+
+.c4 select:focus {
+  border-color: #6E1EFF;
+}
+
+.c4::after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+  width: 0;
+  height: 0;
+  content: "";
+  cursor: pointer;
+  margin-left: -18px;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
 }
 
 <div
@@ -3238,6 +4104,71 @@ exports[`renders correctly 1`] = `
   </div>
   <div
     className="c3"
+  >
+    <div
+      className="c4"
+      onSelect={[Function]}
+      title="Sort"
+    >
+      <label>
+        <div
+          className="c5 "
+          display="inline"
+          fontFamily="Unica77LLWebRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+          fontSize="12px"
+        >
+          Sort
+          :
+        </div>
+        <select
+          onChange={[Function]}
+        >
+          <option
+            value="RECENTLY_PUBLISHED"
+          >
+            Recently published
+          </option>
+          <option
+            value="RECENTLY_UPDATED"
+          >
+            Recently updated
+          </option>
+          <option
+            value="RECENTLY_CHANGED_ACQUIREABILITY"
+          >
+            Recent acquireability change
+          </option>
+          <option
+            value="MERCHANDISABILITY"
+          >
+            Merchandisability
+          </option>
+          <option
+            value="HIGHEST_PRICE"
+          >
+            Highest price
+          </option>
+          <option
+            value="LOWEST_PRICE"
+          >
+            Lowest price
+          </option>
+          <option
+            value="LARGEST"
+          >
+            Largest dimensions
+          </option>
+          <option
+            value="SMALLEST"
+          >
+            Smallest dimensions
+          </option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div
+    className="c6"
   >
     <div
       className="filter"
