@@ -538,4 +538,136 @@ describe('buildElasticsearchQuery', () => {
       expect(actualQuery).toEqual(expectedQuery)
     })
   })
+
+  describe('sort orders', () => {
+    beforeEach(() => {
+      params.genes = [{ id: 'gene1', name: 'Gene 1' }]
+    })
+
+    it('sorts by merchandisability', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ merchandisability: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'MERCHANDISABILITY'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('sorts by price', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ prices: 'asc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'LOWEST_PRICE'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('sorts by dimensions', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ dimension_score: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'LARGEST'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('sorts by publish date', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ published_at: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'RECENTLY_PUBLISHED'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('sorts by modification date', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ partner_updated_at: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'RECENTLY_UPDATED'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+
+    it('sorts by acquireability date', () => {
+      const expectedQuery = {
+        query: {
+          bool: {
+            must: [
+              { match: { deleted: false } },
+              { match: { 'genes.raw': 'Gene 1' } },
+            ],
+          },
+        },
+        from: 0,
+        size: 100,
+        sort: [{ acquireability_changed_at: 'desc' }, { id: 'desc' }],
+      }
+
+      params.sort = 'RECENTLY_CHANGED_ACQUIREABILITY'
+
+      const actualQuery = buildElasticsearchQuery(params)
+      expect(actualQuery).toEqual(expectedQuery)
+    })
+  })
 })

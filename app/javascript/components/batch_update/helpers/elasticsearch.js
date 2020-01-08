@@ -2,7 +2,14 @@ const defaultPageSize = 100
 const DEBUG = false
 
 const SORT_CLAUSES = {
+  MERCHANDISABILITY: { merchandisability: 'desc' },
   RECENTLY_PUBLISHED: { published_at: 'desc' },
+  RECENTLY_UPDATED: { partner_updated_at: 'desc' },
+  RECENTLY_CHANGED_ACQUIREABILITY: { acquireability_changed_at: 'desc' },
+  LARGEST: { dimension_score: 'desc' },
+  SMALLEST: { dimension_score: 'asc' },
+  HIGHEST_PRICE: { prices: 'desc' },
+  LOWEST_PRICE: { prices: 'asc' },
 }
 
 export function buildElasticsearchQuery(args) {
