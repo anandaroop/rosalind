@@ -17,7 +17,6 @@ beforeEach(() => {
     fair: null,
     forSaleFilter: 'SHOW_ALL',
     genes: [],
-    genomedFilter: 'SHOW_ALL',
     keywords: [],
     acquireableOrOfferableFilter: 'SHOW_ALL',
     minPrice: null,

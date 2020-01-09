@@ -12,7 +12,6 @@ describe('buildElasticsearchQuery', () => {
       fair: null,
       forSaleFilter: null,
       genes: [],
-      genomedFilter: null,
       keywords: [],
       maxPrice: null,
       minPrice: null,
@@ -461,27 +460,6 @@ describe('buildElasticsearchQuery', () => {
       }
 
       params.publishedFilter = 'SHOW_PUBLISHED'
-
-      const actualQuery = buildElasticsearchQuery(params)
-      expect(actualQuery).toEqual(expectedQuery)
-    })
-
-    it('modifies a query with the value of the "genomed" filter', () => {
-      const expectedQuery = {
-        query: {
-          bool: {
-            must: [
-              { match: { deleted: false } },
-              { match: { 'genes.raw': 'Gene 1' } },
-              { match: { genomed: true } },
-            ],
-          },
-        },
-        from: 0,
-        size: 100,
-        sort: [{ published_at: 'desc' }, { id: 'desc' }],
-      }
-      params.genomedFilter = 'SHOW_GENOMED'
 
       const actualQuery = buildElasticsearchQuery(params)
       expect(actualQuery).toEqual(expectedQuery)

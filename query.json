@@ -1,0 +1,48 @@
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "deleted": false
+          }
+        },
+        {
+          "multi_match": {
+            "type": "most_fields",
+            "fields": [
+              "name.*",
+              "genes.*^4",
+              "tags.*^4",
+              "auto_tags.*^2",
+              "partner_name.*^2",
+              "artist_name.*^2"
+            ],
+            "query": "hot dog",
+            "operator": "and"
+          }
+        },
+        {
+          "match": {
+            "artist_id": "4d8b92b34eb68a1b2c0003f4"
+          }
+        }
+      ],
+      "filter": {
+        "term": {
+          "id": "5e1003c5ecc1a4000eae4346"
+        }
+      }
+    }
+  },
+  "sort": [
+    {
+      "published_at": "desc"
+    },
+    {
+      "id": "desc"
+    }
+  ],
+  "from": 0,
+  "size": 100
+}
